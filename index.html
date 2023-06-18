@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+.Salary-box{
+ display:flex-wrap;
+ flex-direction: column;
+ justify-content: space-around;
+ align-items: center;
+ }
+ .A-input{
+ display: flex;
+ font-size: 24px;
+ margin-bottom:20px;
+ margin-left: 10px;
+ font-weight: 600;
+ }
+ .s-inputbar{
+    box-shadow: none;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(255, 255, 255, .9);
+    transition: border-color .3s, color .3s;
+    position: relative;
+        min-height: 32px;
+    color: #667097;
+    background-color: #fff;
+    border: 1px solid #ebeff6;
+    border-radius: 64px;
+    margin-bottom: 0;
+    padding: 16px 24px 14px;
+    font-size: 18px;
+    line-height: 20px;
+    transition: box-shadow .3s, border-color .3s, color .3s;
+    box-shadow: 0 4px 12px rgba(20, 20, 43, .04);
+ }
+ .s-btn{
+    box-shadow: none;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(255, 255, 255, .9);
+    transition: border-color .3s, color .3s;
+    position: relative;
+        min-height: 62px;
+    color: #667097;
+    background-color: #fff;
+    border: 1px solid #ebeff6;
+    border-radius: 64px;
+    margin-bottom: 0;
+    padding: 16px 24px 14px;
+    font-size: 18px;
+    line-height: 20px;
+    transition: box-shadow .3s, border-color .3s, color .3s;
+    box-shadow: 0 4px 12px rgba(20, 20, 43, .04);
+     margin-left: 10px;
+}
+
+#result {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  line-height:30px;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+
+.blue {
+  
+  font-weight: bold;
+  color: blue;
+}
+@media only screen and (max-width: 600px) {
+  .A-input {
+    font-size: 18px;
+  }
+
+  .s-inputbar,
+  .s-btn {
+    font-size: 16px;
+    padding: 12px 20px 10px;
+  }
+
+  #result {
+    font-size: 18px;
+    margin-left: 0;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="Salary-box">
+   <span class="A-input"> What is Your  Salary</span>
+   <input type="numbers" class=" s-inputbar" id="inputsalary" placeholder="Enter your Salary"> 
+   <button class="s-btn">Calculate</button>
+   <div class="result-box" id="result"></div>
+</div>
+</body>
+<script>
+
+  document.querySelector(".s-btn").addEventListener("click", function () {
+  var salaryInput = document.getElementById("inputsalary");
+  var salary = parseFloat(salaryInput.value);
+  var resultElement = document.getElementById("result");
+
+  if (!isNaN(salary)) {
+    var monthlySalary = salary;
+    var annualSalary = monthlySalary * 12;
+    var monthlyIncome = monthlySalary / 12;
+
+    resultElement.innerHTML = "You Entered amount is <span class='blue'>" + monthlySalary.toFixed(2) + "</span><br> Based on your amount it is your monthly income well this is the annual income(salary) is <span class='a-s'>" + annualSalary.toFixed(2) +"/Y" + "</span><br>Based on your entered amount it is Your Annual income than it is the monthly takeaway salary is <span class='m-take'>" + monthlyIncome.toFixed(2) +"/m " + "</span><br>";
+
+
+   var span = document.querySelector(".a-s");
+    if (annualSalary > 100000 && annualSalary <= 400000) {
+      span.style.color = "orange";
+      span.style.fontWeight = "500";
+    } else if (annualSalary > 500000 && annualSalary <= 1200000)  {
+      span.style.color = "green";
+      span.style.fontWeight = "700";
+    } else if (annualSalary > 1200000) {
+      span.style.color = "green";
+      span.style.fontWeight = "900";
+    }
+    
+    
+    var span2 = document.querySelector(".m-take");
+    if (monthlyIncome > 15000 && monthlyIncome <= 35000) {
+      span2.style.color = "orange";
+      span2.style.fontWeight = "400";
+    } else if (monthlyIncome > 40000 && monthlyIncome <= 90000){
+      span2.style.color = "green";
+      span2.style.fontWeight = "600";
+    } else if (monthlyIncome > 100000 && monthlyIncome <= 200000){
+      span2.style.color = "#FFD700";
+      span2.style.fontWeight = "700";
+    }
+  } else {
+    resultElement.textContent = "Invalid input. Please enter a valid salary.";
+  }
+});
+
+
+</script>
+</html>

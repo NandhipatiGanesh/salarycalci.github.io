@@ -2,4 +2,4 @@
 A Salary calculator
 
 Demo 
-https://freshersway.in/salary-calculator/ 
+<h2> <a href="https://freshersway.in/salary-calculator/ "></a>Salary Calculator</h2>
